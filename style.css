@@ -1,0 +1,159 @@
+/* style.css */
+ :root {
+  --primary-color: #ffc107; /* Yellow */
+  --secondary-color: #343a40; /* Dark Gray */
+  --text-color-light: #fff;
+  --text-color-dark: #212529;
+  --background-color-light: #f8f9fa;
+  --background-color-dark: #343a40;
+  --card-background-light: #fff;
+  --card-background-dark: #495057;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+ }
+
+ [data-theme="dark"] {
+  --text-color-light: #212529;
+  --text-color-dark: #fff;
+  --background-color-light: #343a40;
+  --background-color-dark: #f8f9fa;
+  --card-background-light: #495057;
+  --card-background-dark: #fff;
+ }
+
+ body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--background-color-light);
+  color: var(--text-color-dark);
+  transition: background-color 0.3s, color 0.3s;
+ }
+
+ .header {
+  background-color: var(--secondary-color);
+  color: var(--text-color-light);
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+ }
+
+ .header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+ }
+
+ .card {
+  background-color: var(--card-background-light);
+  color: var(--text-color-dark);
+  border: none;
+  box-shadow: 0 0.25rem 0.5rem var(--shadow-color);
+  transition: background-color 0.3s, color 0.3s;
+ }
+
+ .card-title {
+  color: var(--text-color-dark);
+ }
+
+ .btn-warning {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--text-color-dark);
+ }
+
+ .btn-warning:hover {
+  background-color: #e0a800;
+  border-color: #d39e00;
+  color: var(--text-color-dark);
+ }
+
+ .form-control {
+  border: 1px solid #ced4da;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  color: var(--text-color-dark);
+  background-color: var(--card-background-light);
+ }
+
+ .form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+ }
+
+ .footer {
+  background-color: var(--secondary-color);
+  color: var(--text-color-light);
+  padding: 1rem 0;
+  text-align: center;
+  margin-top: 2rem;
+ }
+
+ /* Dark Mode Toggle */
+ #darkModeToggle {
+  background-color: var(--secondary-color);
+  color: var(--text-color-light);
+  border: 1px solid var(--primary-color);
+ }
+
+ #darkModeToggle:hover {
+  background-color: #5a6268;
+ }
+
+ /* Responsive Design */
+ .container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+ }
+
+ /* Payslip Styling */
+ #payslip {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+ }
+
+ #payslip h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+ }
+
+ #payslip h3 {
+  font-size: 16px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+ }
+
+ #payslip p {
+  margin: 5px 0;
+ }
+
+ .payslip-section {
+  margin-bottom: 15px;
+ }
+
+ .download-button {
+  margin-top: 20px;
+ }
+
+ @media (min-width: 576px) {
+  .container {
+   max-width: 540px;
+  }
+ }
+
+ @media (min-width: 768px) {
+  .container {
+   max-width: 720px;
+  }
+ }
+
+ @media (min-width: 992px) {
+  .container {
+   max-width: 960px;
+  }
+ }
+
+ @media (min-width: 1200px) {
+  .container {
+   max-width: 1140px;
+  }
+ }

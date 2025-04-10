@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Payroll System</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+   integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+   crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+ </head>
+ <body>
+  <header class="header">
+   <div class="container text-center">
+    <h1>Employee Payroll System</h1>
+    <p>Manage your employee payroll efficiently and effectively.</p>
+    <button id="darkModeToggle" class="btn btn-sm btn-outline-light"><i class="fas fa-moon"></i> Dark Mode</button>
+   </div>
+  </header>
+
+  <div class="container mt-4">
+   <div class="row">
+    <div class="col-md-8">
+     <div class="card shadow">
+      <div class="card-body">
+       <h5 class="card-title">Add New Employee</h5>
+       <form id="employeeForm">
+        <div class="form-group">
+         <label for="employeeName">Employee Name</label>
+         <input type="text" class="form-control" id="employeeName" placeholder="Enter name" required>
+        </div>
+        <div class="form-group">
+         <label for="employeeId">Employee ID</label>
+         <input type="text" class="form-control" id="employeeId" placeholder="Enter ID" required>
+        </div>
+        <div class="form-group">
+         <label for="employeeDepartment">Department</label>
+         <input type="text" class="form-control" id="employeeDepartment" placeholder="Enter Department" required>
+        </div>
+        <div class="form-group">
+         <label for="employeeContact">Contact Information</label>
+         <input type="text" class="form-control" id="employeeContact" placeholder="Enter Contact" required>
+        </div>
+
+        <div class="form-group">
+         <label for="basicSalary">Basic Salary</label>
+         <input type="number" class="form-control" id="basicSalary" placeholder="Enter Basic Salary" required>
+        </div>
+        <div class="form-group">
+         <label for="allowances">Allowances</label>
+         <input type="number" class="form-control" id="allowances" placeholder="Enter Allowances">
+        </div>
+        <div class="form-group">
+         <label for="bonuses">Bonuses</label>
+         <input type="number" class="form-control" id="bonuses" placeholder="Enter Bonuses">
+        </div>
+        <div class="form-group">
+         <label for="tax">Tax (%)</label>
+         <input type="number" class="form-control" id="tax" placeholder="Enter Tax Percentage">
+        </div>
+        <div class="form-group">
+         <label for="insurance">Insurance</label>
+         <input type="number" class="form-control" id="insurance" placeholder="Enter Insurance Deductions">
+        </div>
+        <div class="form-group">
+         <label for="otherEarnings">Other Earnings</label>
+         <input type="number" class="form-control" id="otherEarnings" placeholder="Enter Other Earnings">
+        </div>
+
+        <button type="submit" class="btn btn-warning">Add Employee</button>
+        <button type="button" class="btn btn-secondary" onclick="clearForm()">Clear Form</button>
+
+       </form>
+      </div>
+     </div>
+    </div>
+
+    <div class="col-md-4">
+     <div class="card shadow">
+      <div class="card-body">
+       <h5 class="card-title">Payroll Summary</h5>
+       <p><b>Total Payroll:</b> <span id="totalPayroll">0.00</span></p>
+       <p><b>Total Tax Deductions:</b> <span id="totalTax">0.00</span></p>
+       <p><b>Total Net Salary:</b> <span id="totalNetSalary">0.00</span></p>
+      </div>
+     </div>
+    </div>
+   </div>
+
+   <div class="row mt-4">
+    <div class="col-md-12">
+     <div class="card shadow">
+      <div class="card-body">
+       <h5 class="card-title">Employee List</h5>
+       <div class="mb-3">
+        <input type="text" id="searchEmployee" class="form-control" placeholder="Search Employee...">
+       </div>
+       <div class="table-responsive">
+        <table class="table table-striped">
+         <thead>
+          <tr>
+           <th>ID</th>
+           <th>Name</th>
+           <th>Department</th>
+           <th>Actions</th>
+          </tr>
+         </thead>
+         <tbody id="employeeList">
+          <!-- Employee data will be dynamically added here -->
+         </tbody>
+        </table>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+
+   <div class="row mt-4">
+    <div class="col-md-12">
+     <div class="card shadow">
+      <div class="card-body">
+       <h5 class="card-title">Employee Details</h5>
+       <div id="employeeDetails">
+        <!-- Employee details and payslip will be displayed here -->
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="container mt-4">
+   <div class="row">
+    <div class="col-md-12">
+     <div class="card shadow">
+      <div class="card-body">
+       <h5 class="card-title">Employee Details From API</h5>
+       <button id="refreshData" class="btn btn-warning">Refresh API Data</button>
+       <div class="table-responsive">
+        <table class="table table-striped">
+         <thead>
+          <tr>
+           <th>ID</th>
+           <th>Name</th>
+           <th>Age</th>
+           <th>Username</th>
+           <th>Email</th>
+           <th>Address</th>
+           <th>Phone</th>
+           <th>Website</th>
+           <th>Occupation</th>
+           <th>Hobbies</th>
+          </tr>
+         </thead>
+         <tbody id="apiData">
+          <!-- Employee data from API will be dynamically added here -->
+         </tbody>
+        </table>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <footer class="footer mt-4">
+   <div class="container text-center">
+    <p>&copy; 2024 Employee Payroll System. All rights reserved.</p>
+   </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+ </body>
+ </html>
