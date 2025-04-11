@@ -4,7 +4,7 @@
 This project simulates an employee payroll system using JavaScript. It allows users to add employee data, calculate net salaries with tax and other deductions, generate payslips, view employee details, delete employees, and persist data using local storage. Additionally, the system fetches and displays user data from an external API, enhancing the application's functionality by providing a source of external data for demonstration or augmentation. The application also has Dark Mode functionality. Technologies used include JavaScript, HTML, CSS, jspdf library and Local Storage.
 
 ## Output
-<iframe src="https://github.com/niat-web/Employee_Payroll_System" height="1000" width="300" title="Employee_Payroll_System"></iframe>
+<iframe src="https://niat-web.github.io/Employee_Payroll_System/" height="1000" width="300" title="Employee_Payroll_System"></iframe>
 
 ## Project Requirements
 **Technologies:** JavaScript, HTML, CSS, jspdf library (for PDF generation), Local Storage, freeTestApi.com (for fetching external user data).
